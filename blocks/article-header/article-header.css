@@ -1,0 +1,47 @@
+/* Limita o bloco centralizando-o na tela (padrão de leitura) */
+.article-header-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Tipografia focada em minimalismo */
+.article-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+/* Flexbox para alinhar a foto com os textos lado a lado */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Tratamento da imagem gerada pelo EDS */
+.article-author-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.article-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-author-name {
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.article-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
