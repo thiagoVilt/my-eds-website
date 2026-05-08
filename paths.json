@@ -1,8 +1,8 @@
 {
- "mappings": [
- "/content/my-eds-website:/",
- "/content/my-eds-website/configuration:/.helix/config.json",
- "/content/my-eds-website/metadata:/metadata.json"
- ],
- "includes": ["/content/my-eds-website/"]
+  "mappings": {
+    "/content/my-eds-website/": "/",
+    "/content/my-eds-website/configuration": "/.helix/config.json",
+    "/content/my-eds-website/metadata": "/metadata.json"
+  },
+  "includes": ["/content/my-eds-website/"]
 }
