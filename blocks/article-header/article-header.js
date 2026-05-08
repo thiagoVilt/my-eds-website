@@ -1,9 +1,17 @@
 // A função padrão de todo bloco EDS deve ser 'decorate' e ser exportada como default
 export default function decorate(block) {
   // 1. Extração: Pegamos os elementos "crus" que vieram do AEM/Universal Editor
-  const title = block.querySelector('h1');
-  const picture = block.querySelector('picture'); // O EDS converte <img> para <picture> automaticamente para performance
-  const paragraphs = block.querySelectorAll('p');
+  const title = block.querySelector('h1, p');
+  const picture = block.querySelector('picture');
+
+  // Pegamos todos os parágrafos do bloco
+  const allParagraphs = Array.from(block.querySelectorAll('p'));
+  // O primeiro parágrafo é sempre o título, então pegamos do segundo em diante
+  const metadataParagraphs = allParagraphs.slice(1);
+  // Extraímos nome do autor (segundo p geral = primeiro dos metadados)
+  // e data (terceiro p geral = segundo dos metadados)
+  const authorName = metadataParagraphs[0]?.textContent.trim() || '';
+  const publishDate = metadataParagraphs[1]?.textContent.trim() || '';
 
   // 2. Limpeza: Esvaziamos o bloco original para reconstruirmos um DOM semântico e limpo
   block.textContent = '';
@@ -27,21 +35,23 @@ export default function decorate(block) {
     metaContainer.append(picture);
   }
 
-  // Pegamos os parágrafos (assumindo que [0] é o nome e [1] é a data)
-  if (paragraphs.length > 0) {
+  // Montamos as informações do autor e data
+  if (authorName || publishDate) {
     const authorInfo = document.createElement('div');
     authorInfo.className = 'article-author-info';
 
-    const authorName = document.createElement('span');
-    authorName.className = 'article-author-name';
-    authorName.innerHTML = paragraphs[0].innerHTML;
-    authorInfo.append(authorName);
+    if (authorName) {
+      const authorNameSpan = document.createElement('span');
+      authorNameSpan.className = 'article-author-name';
+      authorNameSpan.textContent = authorName;
+      authorInfo.append(authorNameSpan);
+    }
 
-    if (paragraphs.length > 1) {
-      const publishDate = document.createElement('span');
-      publishDate.className = 'article-date';
-      publishDate.innerHTML = paragraphs[1].innerHTML;
-      authorInfo.append(publishDate);
+    if (publishDate) {
+      const publishDateSpan = document.createElement('span');
+      publishDateSpan.className = 'article-date';
+      publishDateSpan.textContent = publishDate;
+      authorInfo.append(publishDateSpan);
     }
 
     metaContainer.append(authorInfo);

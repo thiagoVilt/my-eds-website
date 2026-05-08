@@ -242,6 +242,10 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+main > .section.article-header-container {
+  margin: 0 auto;
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
