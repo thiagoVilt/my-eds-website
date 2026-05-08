@@ -214,5 +214,34 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "article-header",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Título do Artigo",
+        "valueType": "string"
+      },
+      {
+        "component": "image",
+        "name": "avatar",
+        "label": "Foto do Autor",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "authorName",
+        "label": "Nome do Autor",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "publishDate",
+        "label": "Data de Publicação",
+        "valueType": "string"
+      }
+    ]
   }
 ]
