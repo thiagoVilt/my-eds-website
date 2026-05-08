@@ -225,10 +225,10 @@
         "valueType": "string"
       },
       {
-        "component": "image",
+        "component": "reference",
         "name": "avatar",
         "label": "Foto do Autor",
-        "valueType": "string"
+        "multi": false
       },
       {
         "component": "text",
