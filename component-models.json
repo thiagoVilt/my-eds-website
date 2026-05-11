@@ -243,5 +243,34 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "author-bio",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "avatar",
+        "label": "Foto do Autor",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "authorName",
+        "label": "Nome do Autor",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "role",
+        "label": "Cargo do Autor",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Bio do Autor",
+        "valueType": "string"
+      }
+    ]
   }
 ]
